@@ -1,5 +1,5 @@
 class Movies{
-  List<Movie> movies = new List();
+  List<Movie> items = new List();
 
   Movies();
 
@@ -8,7 +8,7 @@ class Movies{
 
     for (var item in jsonList) {
       final movie = new Movie.fromJsonMap(item);
-      movies.add(movie);
+      items.add(movie);
     }
   }
 }
@@ -62,5 +62,14 @@ class Movie {
     voteAverage = json['vote_average']/1;
     overview = json['overview'];
     releaseDate = json['release_date'];
+  }
+
+  getPosterImg(){
+    if (posterPath ==null) {
+      return 'https://www.samsung.com/etc/designs/smg/global/imgs/support/cont/NO_IMG_600x600.png';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
+    
   }
 }
