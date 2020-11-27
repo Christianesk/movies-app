@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies/src/config/config.dart';
@@ -6,7 +6,7 @@ import 'package:movies/src/models/actors_model.dart';
 
 class ActorsProvider {
   Future<List<Actor>> getCast(String movieId) async {
-    final url = Uri.https(urlApi, '/movie/$movieId/credits', {
+    final url = Uri.https(urlApi, '3/movie/$movieId/credits', {
       'api_key': apiKey,
       'language': language,
     });
